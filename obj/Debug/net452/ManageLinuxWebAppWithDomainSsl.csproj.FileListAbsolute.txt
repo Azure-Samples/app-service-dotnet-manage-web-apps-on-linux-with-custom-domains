@@ -1,4 +1,0 @@
-C:\Sources\dotnet-samples\app-service-dotnet-manage-web-apps-on-linux-with-custom-domains\bin\Debug\net452\ManageLinuxWebAppWithDomainSsl.runtimeconfig.json
-C:\Sources\dotnet-samples\app-service-dotnet-manage-web-apps-on-linux-with-custom-domains\bin\Debug\net452\ManageLinuxWebAppWithDomainSsl.runtimeconfig.dev.json
-C:\Sources\dotnet-samples\app-service-dotnet-manage-web-apps-on-linux-with-custom-domains\obj\Debug\net452\ManageLinuxWebAppWithDomainSsl.csproj.ManageLinuxWebAppWithDomainSsl.exe.config
-C:\Sources\dotnet-samples\app-service-dotnet-manage-web-apps-on-linux-with-custom-domains\obj\Debug\net452\ManageLinuxWebAppWithDomainSsl.csproj.CoreCompileInputs.cache

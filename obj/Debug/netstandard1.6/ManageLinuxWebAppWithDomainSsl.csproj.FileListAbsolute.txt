@@ -1,2 +1,0 @@
-C:\Sources\dotnet-samples\app-service-dotnet-manage-web-apps-on-linux-with-custom-domains\bin\Debug\netstandard1.6\ManageLinuxWebAppWithDomainSsl.deps.json
-C:\Sources\dotnet-samples\app-service-dotnet-manage-web-apps-on-linux-with-custom-domains\obj\Debug\netstandard1.6\ManageLinuxWebAppWithDomainSsl.csproj.CoreCompileInputs.cache
