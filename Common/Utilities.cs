@@ -6,6 +6,7 @@ using System.IO;
 using System.Net.Http;
 using System;
 using System.Text;
+using System.Diagnostics;
 
 namespace Azure.ResourceManager.Samples.Common
 {
@@ -164,6 +165,61 @@ namespace Azure.ResourceManager.Samples.Common
                     var fileReadStream = fileinfo.OpenRead();
                     fileReadStream.CopyToAsync(writeStream).GetAwaiter().GetResult();
                 }
+            }
+        }
+
+        public static void CreateCertificate(string domainName, string pfxPath, string password)
+        {
+            if (!IsRunningMocked)
+            {
+                string args = string.Format(
+                    @".\createCert.ps1 -pfxFileName {0} -pfxPassword ""{1}"" -domainName ""{2}""",
+                    pfxPath,
+                    password,
+                    domainName);
+                ProcessStartInfo info = new ProcessStartInfo("powershell", args);
+                string assetPath = Path.Combine(ProjectPath, "Asset");
+                info.WorkingDirectory = assetPath;
+                Process? process = Process.Start(info);
+                process.WaitForExit();
+
+                if (process.ExitCode != 0)
+                {
+                    // call "Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Bypass" in powershell if you fail here
+
+                    Utilities.Log("powershell createCert.ps1 script failed");
+                }
+            }
+            else
+            {
+                //File.Copy(
+                //    Path.Combine(Utilities.ProjectPath, "Asset", "SampleTestCertificate.pfx"),
+                //    Path.Combine(Utilities.ProjectPath, "Asset", pfxPath),
+                //    overwrite: true);
+            }
+        }
+
+        public static void CreateCertificate(string domainName, string pfxName, string cerName, string password)
+        {
+            if (!IsRunningMocked)
+            {
+                string args = string.Format(
+                    @".\createCert1.ps1 -pfxFileName {0} -cerFileName {1} -pfxPassword ""{2}"" -domainName ""{3}""",
+                    pfxName,
+                    cerName,
+                    password,
+                    domainName);
+                ProcessStartInfo info = new ProcessStartInfo("powershell", args);
+                string assetPath = Path.Combine(ProjectPath, "Asset");
+                info.WorkingDirectory = assetPath;
+                Process.Start(info).WaitForExit();
+            }
+            else
+            {
+                //File.Copy(
+                //    Path.Combine(Utilities.ProjectPath, "Asset", "SampleTestCertificate.pfx"),
+                //    Path.Combine(Utilities.ProjectPath, "Asset", pfxName),
+                //    overwrite: true);
             }
         }
     }
